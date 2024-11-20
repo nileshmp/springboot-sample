@@ -1,5 +1,5 @@
 # README #
-
+Readme file for the sample springboot project, for jenkins integration.
 
 ### What is this repository for? ###
 
