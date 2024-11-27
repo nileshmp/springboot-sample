@@ -1,4 +1,4 @@
-FROM openjdk:23-jdk
+FROM amazoncorretto:17.0.7-alpine
 
 ARG JAR_FILE=target/springboot-sample-0.0.1-SNAPSHOT.jar
 
