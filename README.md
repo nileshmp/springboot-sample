@@ -27,3 +27,25 @@ Readme file for the sample springboot project, for jenkins integration.
 
 * Repo owner or admin
 * Other community or team contact
+
+## Deployement
+
+### Creating eks cluster with eksctl tool (instead of terraform)
+eksctl create cluster \
+  --name springboot-cluster \
+  --region ap-south-1 \
+  --nodes 2 \
+  --nodes-min 2 \
+  --nodes-max 2 \
+  --node-type a1.medium
+
+aws eks --region ap-south-1 update-kubeconfig --name springboot-cluster
+
+helm create springboot-app
+
+helm install springboot-release ./springboot-app
+
+kubectl scale deployment springboot-release --replicas=2
+
+helm uninstall springboot-release
+eksctl delete cluster --name springboot-cluster
