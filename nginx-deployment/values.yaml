@@ -1,0 +1,9 @@
+controller:
+  extraVolumes:
+    - name: static-content
+      configMap:
+        name: nginx-static-content
+  extraVolumeMounts:
+    - name: static-content
+      mountPath: /usr/share/nginx/html
+      subPath: index.html
